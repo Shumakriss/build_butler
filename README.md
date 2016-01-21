@@ -28,3 +28,29 @@ Desired Features:
 * Detecting unrecognized faces - Right now, the face matching is done with Euclidean arithmetic (please don't ask me what that means). The current code can pick the best match out of a list of subjects and provides a Euclidean distance which for all intents and purposes can serve as a confidence metric. This means that there is no way to know if the face is simply recognizable. My best guess now is to consider any face with an abnormally high Euclidean distance as a new face.
 * Text to speech - Build butler needs a lot of pictures from a lot of people in order to get to know the team. It would be good if build butler could ask for these things on its own.
 * Name - Build butler needs a names. Probably something like Hudson, Jenkins, or Jeeves. But not Travis, that would be confusing.
+
+Alternatives analysis
+
+Create2 Pros:
+* Obstacle avoidance built-in
+* Return-to-base pathfinding
+* Charging dock
+* Carrying capacity
+* Lowest known cost
+
+Create2 Cons:
+* Limited to floor, requires special camera
+* Existing code is closed-source, not reusable
+
+Quadcopter Pros:
+* Cooler
+* Very mobile
+* Controlling the camera is just a matter of steering the device (no separate logic)
+
+Quadcopter Cons:
+* Serious weight restrictions
+* No charging docks
+* No obstacle detection
+* Fan blades are more dangerous than Roomba wheels
+* No return-to-dock built in
+* Variable cost (lots of work for cheap models, potentially costly misses for expensive models )
