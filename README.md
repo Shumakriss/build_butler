@@ -1,5 +1,8 @@
 Build Butler is a robot that finds whoever broke the build. 
 
+*Disclaimer*
+This repo is largely full of example code that has been borrowed and cobbled together like a bunch of Legos. I still need to list some references so assume that most of the code is not mine. The idea, collection, and integration of the examples is mine, however, and the code was all obtained freely from open source projects.
+
 While there might be some trivial ways to map an office, I wanted build butler to be a little more personable so build bot can also learn and recognize faces and names. 
 
 I will likely make the first prototype using an iRobot Create 2, Raspberry Pi 2, and a webcam. I have not selected a webcam yet but one with simple programmable servos is preferred (recommendations welcome). 
