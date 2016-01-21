@@ -60,3 +60,9 @@ target/
 
 # Config Files
 build_butler.json
+
+*.png
+*.jpg
+*.pgm
+*.DS_STORE
+*.mov
