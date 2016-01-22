@@ -28,6 +28,7 @@ Desired Features:
 * Detecting unrecognized faces - Right now, the face matching is done with Euclidean arithmetic (please don't ask me what that means). The current code can pick the best match out of a list of subjects and provides a Euclidean distance which for all intents and purposes can serve as a confidence metric. This means that there is no way to know if the face is simply recognizable. My best guess now is to consider any face with an abnormally high Euclidean distance as a new face.
 * Text to speech - Build butler needs a lot of pictures from a lot of people in order to get to know the team. It would be good if build butler could ask for these things on its own.
 * Name - Build butler needs a names. Probably something like Hudson, Jenkins, or Jeeves. But not Travis, that would be confusing.
+* Optimization - Perhaps finding people/humans prior to searching for faces
 
 Alternatives analysis
 
@@ -44,8 +45,11 @@ Create2 Cons:
 
 Quadcopter Pros:
 * Cooler
+* Can name it BuildBug
 * Very mobile
 * Controlling the camera is just a matter of steering the device (no separate logic)
+* Can reuse logic for household security project (something named like GuardDog, GuardianEagle, SentryBot)
+* Could be swarm capable (multiple notifications, distributed weight/responsibilities, faster searching, intimidation?)
 
 Quadcopter Cons:
 * Serious weight restrictions
