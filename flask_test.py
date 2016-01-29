@@ -5,20 +5,12 @@ import json
 
 app = Flask(__name__)
 
-@app.route('/')
-def hello_world():
-    return 'Hello World!'
-
-@app.route('/notification')
-def notification():
-    return "Received a notification!"
-
 @app.route('/api/jenkins', methods=['POST'])
-def add_message():
+def receive_build_data():
     build = request.json['build']
     phase = build['phase']
     if not phase == 'COMPLETED':
-      return "Uninteresting phase"
+      return
     if 'status' in build and build['status'] == 'FAILURE':
       commit = build['scm']['commit']
       commitUrl = "https://api.github.com/repos/Shumakriss/JenkinsAlertsTestRepo/commits/" + commit
@@ -28,4 +20,4 @@ def add_message():
     return "Received notification"
 
 if __name__ == '__main__':
-    app.run(host='192.168.33.10', debug=True)
+    app.run()
