@@ -6,6 +6,14 @@ Credit
 ----------
 This repo is largely full of example code that has been borrowed and cobbled together like a bunch of Legos. I still need to list some references so assume that most of the code is not mine. The idea, collection, and integration of the examples is mine, however, and the code was all obtained freely from open source projects.
 
+For Speech recognition: [https://github.com/Uberi/speech_recognition](https://github.com/Uberi/speech_recognition)  
+
+For Face Detection: [https://realpython.com](https://realpython.com)
+
+For classifier training: [http://coding-robin.de/2013/07/22/train-your-own-opencv-haar-classifier.html](http://coding-robin.de/2013/07/22/train-your-own-opencv-haar-classifier.html)
+
+For face recognition: [https://github.com/joshliu/ScandIn-Flask](https://github.com/joshliu/ScandIn-Flask). 
+
 Project Details
 ===============
 
