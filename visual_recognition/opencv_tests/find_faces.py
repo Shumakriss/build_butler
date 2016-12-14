@@ -64,6 +64,6 @@ for j, ref_pca in enumerate(pca.transform(X)):
     found_ID = min(distances)[1]
 
     if(min(distances)[0] < 1.5 ):
-      print "Good match!"
+      print("Good match!")
 
-    print "Identified (result: "+ str(found_ID) +" - dist - " + str(min(distances)[0])  + ")"
+    print("Identified (result: "+ str(found_ID) +" - dist - " + str(min(distances)[0])  + ")")

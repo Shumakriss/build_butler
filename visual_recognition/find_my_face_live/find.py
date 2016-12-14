@@ -11,13 +11,17 @@ import time
 
 #function to get ID from filename
 def ID_from_filename(filename):
-    part = string.split(filename, '/')
+    if(filename == None):
+        raise "Must specify filename"
+    part = filename.split('/')
     return part[1].replace("s", "")
  
 #function to convert image to right format
 def prepare_image(filename):
     img_color = cv2.imread(filename)
-    img_gray = cv2.cvtColor(img_color, cv2.cv.CV_RGB2GRAY)
+    #img_gray = cv2.cvtColor(img_color, cv2.cv.CV_RGB2GRAY)
+    #Updated for opencv3
+    img_gray = cv2.cvtColor(img_color, cv2.COLOR_RGB2GRAY)
     img_gray = cv2.equalizeHist(img_gray)
     return img_gray.flat
 
@@ -34,14 +38,14 @@ def resize(x, y, w, h):
         extra_height = (112 * w / 92) - h
         h = h + extra_height
         y = y - (extra_height / 2)
-    return x, y, w, h
+    return int(x), int(y), int(w), int(h)
 
 def draw_rectangle(x, y, w, h):
     cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
     return
 
 def find_person(Y):
-    print "Attemping to recognize face"
+    #print("Attemping to recognize face")
     # load test faces (usually one), located in folder test_faces
     test_faces = glob.glob('test_faces/*')
 
@@ -49,6 +53,7 @@ def find_person(Y):
     X = np.zeros([len(test_faces), IMG_RES], dtype='int8')
      
     # Populate test array with flattened imags from subfolders of train_faces 
+    # This looks wrong to me
     for i, face in enumerate(test_faces):
         X[i,:] = prepare_image(face)
 
@@ -59,16 +64,16 @@ def find_person(Y):
         for i, test_pca in enumerate(X_pca):
             dist = math.sqrt(sum([diff**2 for diff in (ref_pca - test_pca)]))
             distances.append((dist, Y[i]))
-     
-	eigenDistance = min(distances)[0]
+            
+        eigenDistance = min(distances)[0]
         found_ID = min(distances)[1]
 
         if(eigenDistance < 1.5):
-            print "Confidence is high: " + str(eigenDistance)
-        else:
-            print "Confidence is low: " + str(eigenDistance)
-        
-        print "Best Match: " + str(found_ID)
+            print("Confidence is high: " + str(eigenDistance))
+            print("Best Match: " + str(found_ID))
+        #else:
+        #    print("Confidence is low: " + str(eigenDistance))
+        #    print("Best Match: " + str(found_ID))
 
         #print "Identified (result: "+ str(found_ID) +" - dist - " + str(min(distances)[0])  + ")"
     return
@@ -115,7 +120,7 @@ while True:
         scaleFactor=1.1,
         minNeighbors=5,
         minSize=(30, 30),
-        flags=cv2.cv.CV_HAAR_SCALE_IMAGE
+        flags=cv2.CASCADE_SCALE_IMAGE
     )
 
     # Draw a rectangle around the faces
@@ -126,7 +131,7 @@ while True:
         face = frame[y:y+h, x:x+w]
         resized = cv2.resize(face, (92, 112))
         #cv2.imwrite('last_roi.png', resized)
-        grayscale = cv2.cvtColor(resized, cv2.cv.CV_RGB2GRAY)
+        grayscale = cv2.cvtColor(resized, cv2.COLOR_RGB2GRAY)
         #cv2.imwrite('test_faces/last_grayscale' + str(time.time()) + '.png', grayscale)
         cv2.imwrite('test_faces/last_grayscale.png', grayscale)
         find_person(Y)
