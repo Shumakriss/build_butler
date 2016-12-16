@@ -9,6 +9,6 @@ class RecognizeState(state.State):
 		time.sleep(1)
 		recognized = True
 		if(recognized):
-			self.next = requestIdentityState.RequestIdentityState()
+			self.next = requestIdentityState.RequestIdentityState(data="Chris")
 		else:
 			self.next = wanderState.WanderState()
