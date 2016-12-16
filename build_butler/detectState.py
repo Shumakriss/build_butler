@@ -1,6 +1,5 @@
 from build_butler import state, recognizeState, wanderState
 from build_butler.textToSpeech import tts
-import time
 import cv2
 import sys
 
