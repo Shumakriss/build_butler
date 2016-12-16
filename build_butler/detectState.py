@@ -6,7 +6,7 @@ import sys
 class DetectState(state.State):
 
 	RATIO = 92/112
-	CLASSIFIER_FILE = "sample_code/visual_recognition/find_my_face_live/haarcascade_frontalface_default.xml"
+	CLASSIFIER_FILE = "build_butler/detection/haarcascade_frontalface_default.xml"
 
 	def action(self):
 		tts.say("Scanning for humans")
