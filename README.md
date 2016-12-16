@@ -4,6 +4,17 @@ I have moved all my hacky mostly-borrowed scripts to the sample_code directory. 
 
 I have introduced a fun but non-portable detail which is that the textToSpeech module uses the "say" command available on OSX. I will eventually need to update this to be more portable but in the meantime, please replace any calls to tts.say() with print().
 
+Some Next Steps:
+* Allow passing of data to a State
+* Create a script for collecting and formatting more training samples
+* Create modules based on POC code, integrate into States
+* Create some mock/sample Jenkins component to trigger build bot
+* Create remote sensor/control API on RPi
+* Purchase and mount iRobot Create
+* Implement the pathfinding module and integrate into State
+* Migrate the text to speech module to something cross-platform
+* Purchase and integrate speakers to RPi
+
 Description
 ===========
 Build Butler is a robot that finds whoever broke the build. 
@@ -47,7 +58,8 @@ Needed Features
 
 Desired Features
 ----------------
-* Quadcopter support - I need to select the right device. I am looking for hacker-friendly models. There was a kickstarter for this to create something like the iRobot Create but as a quadcopter but it failed to reach its funding target. There are a couple popular alternatives like the CrazyFlie and Parrot AR drone which are basically the low-cost but very minimal and high-cost but low effort approaches, respectively. Recommendations welcome!
+* Quadcopter support - This is no longer an open question. I have gone with the Parrot AR for it's SDK and community. I would like to find something more suitable for small, indoor spaces. Currently, I am anticipating making some simple algorithms to have the quadcopter track over/near the iRobot Create while providing the head-level video feed.
+* Quadcopter hardware - While the iRobot has a way to return to its dock and recharge, I have not seen this feature on a quadcopter yet. This would be ideal for an "always ready" robot.
 * Detecting unrecognized faces - Right now, the face matching is done with Euclidean arithmetic (please don't ask me what that means). The current code can pick the best match out of a list of subjects and provides a Euclidean distance which for all intents and purposes can serve as a confidence metric. This means that there is no way to know if the face is simply recognizable. My best guess now is to consider any face with an abnormally high Euclidean distance as a new face.
 * Text to speech - Build butler needs a lot of pictures from a lot of people in order to get to know the team. It would be good if build butler could ask for these things on its own.
 * Name - Build butler needs a names. Probably something like Hudson, Jenkins, or Jeeves. But not Travis, that would be confusing.
