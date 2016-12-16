@@ -5,7 +5,6 @@ I have moved all my hacky mostly-borrowed scripts to the sample_code directory. 
 I have introduced a fun but non-portable detail which is that the textToSpeech module uses the "say" command available on OSX. I will eventually need to update this to be more portable but in the meantime, please replace any calls to tts.say() with print().
 
 Some Next Steps:
-* Allow passing of data to a State
 * Create a script for collecting and formatting more training samples
 * Create modules based on POC code, integrate into States
 * Create some mock/sample Jenkins component to trigger build bot

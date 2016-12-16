@@ -9,6 +9,6 @@ class DetectState(state.State):
 		time.sleep(1)
 		detected = True
 		if(detected):
-			self.next = recognizeState.RecognizeState()
+			self.next = recognizeState.RecognizeState(data="Image")
 		else:
 			self.next = wanderState.WanderState()
