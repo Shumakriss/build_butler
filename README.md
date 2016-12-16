@@ -1,3 +1,9 @@
+Update
+===========
+I have moved all my hacky mostly-borrowed scripts to the sample_code directory. Borrowing some ideas from game AI design, I realized that a basic finite state machine would be adequate for the essential job of the bot and have implemented a simple FSM in the build_butler package. I intend to clean up and optimize my POC scripts and move them into their respective subpackages.
+
+I have introduced a fun but non-portable detail which is that the textToSpeech module uses the "say" command available on OSX. I will eventually need to update this to be more portable but in the meantime, please replace any calls to tts.say() with print().
+
 Description
 ===========
 Build Butler is a robot that finds whoever broke the build. 

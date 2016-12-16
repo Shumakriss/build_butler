@@ -1,6 +1,5 @@
 from flask import Flask, request
 import requests
-import urllib2
 import json
 
 app = Flask(__name__)
@@ -16,7 +15,7 @@ def receive_build_data():
       commitUrl = "https://api.github.com/repos/Shumakriss/JenkinsAlertsTestRepo/commits/" + commit
       commitDetails = requests.get(commitUrl).content
       commitJson = json.loads(commitDetails)
-      print commitJson['author']['login']
+      print(commitJson['author']['login'])
     return "Received notification"
 
 if __name__ == '__main__':
