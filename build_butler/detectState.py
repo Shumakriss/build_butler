@@ -32,6 +32,6 @@ class DetectState(state.State):
 		video_capture.release()
 
 		if(faces.size > 0):
-			self.next = recognizeState.RecognizeState(data=[frame, faces])
+			self.next = recognizeState.RecognizeState(data=[frame, faces, self.data])
 		else:
 			self.next = wanderState.WanderState()

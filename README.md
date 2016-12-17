@@ -5,7 +5,13 @@ I have moved all my hacky mostly-borrowed scripts to the sample_code directory. 
 I have introduced a fun but non-portable detail which is that the textToSpeech module uses the "say" command available on OSX. I will eventually need to update this to be more portable but in the meantime, please replace any calls to tts.say() with print().
 
 Some Next Steps:
-* Create modules based on POC code, integrate into States
+* Cleanup modules/States - Especially recognition
+* Rewrite FSM to avoid stack overflow
+* Rewrite FSM to pass data more cleanly, perhaps some global info for States
+* Update PCA library
+* Update Carbon Component Manager library
+* Replace ID with usernames
+* Use a real Jenkins POST body
 * Create remote sensor/control API on RPi
 * Purchase and mount iRobot Create
 * Implement the pathfinding module and integrate into State

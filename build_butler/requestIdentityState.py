@@ -5,5 +5,6 @@ import time
 class RequestIdentityState(state.State):
 
 	def action(self):
-		tts.say("Are you " + self.data)
-		self.next = confirmIdentityState.ConfirmIdentityState()
+		person, data = self.data
+		tts.say("Are you " + person)
+		self.next = confirmIdentityState.ConfirmIdentityState(data=self.data)

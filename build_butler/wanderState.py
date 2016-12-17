@@ -5,7 +5,6 @@ import time
 class WanderState(state.State):
 
 	def action(self):
-		print(self.data)
 		tts.say("Initiated pathfinding")
 		time.sleep(1)
-		self.next = detectState.DetectState()
+		self.next = detectState.DetectState(data=self.data)

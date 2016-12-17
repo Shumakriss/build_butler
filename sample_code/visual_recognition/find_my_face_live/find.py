@@ -71,11 +71,6 @@ def find_person(Y):
         if(eigenDistance < 1.5):
             print("Confidence is high: " + str(eigenDistance))
             print("Best Match: " + str(found_ID))
-        #else:
-        #    print("Confidence is low: " + str(eigenDistance))
-        #    print("Best Match: " + str(found_ID))
-
-        #print "Identified (result: "+ str(found_ID) +" - dist - " + str(min(distances)[0])  + ")"
     return
 
 IMG_RES = 92 * 112 # img resolution
