@@ -20,7 +20,6 @@ class DetectState(state.State):
 			video_capture.read()
 		
 		ret, frame = video_capture.read()
-		print('frame=', frame)
 
 		gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
