@@ -10,7 +10,6 @@ Some Next Steps:
 * Rewrite FSM to pass data more cleanly, perhaps some global info for States
 * Update PCA library
 * Update Carbon Component Manager library
-* Replace ID with usernames
 * Use a real Jenkins POST body
 * Figure out why video frames are occasionally blank
 * Create remote sensor/control API on RPi

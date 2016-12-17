@@ -19,7 +19,7 @@ class RecognizeState(state.State):
 	    if(filename == None):
 	        raise "Must specify filename"
 	    part = filename.split('/')
-	    return part[3].replace("s", "")
+	    return part[3]
 	 
 	#function to convert image to right format
 	def prepare_image(self, filename):
@@ -88,15 +88,21 @@ class RecognizeState(state.State):
 
 		#loading training set from folder train_faces
 		folders = glob.glob('build_butler/recognition/train_faces/*')
+		print('folders=', folders)
 
 		# Populate training array with flattened imags from subfolders of train_faces and names
 		c = 0
 		for x, folder in enumerate(folders):
+			print('folder=', folder, ', x=', x)
 			train_faces = glob.glob(folder + '/*')
+			print('train_faces=', train_faces)
 			for i, face in enumerate(train_faces):
+				print('face=', face, ', i=', i)
 				X[c,:] = self.prepare_image(face)
 				Y.append(self.ID_from_filename(face))
 				c = c + 1
+		print('X=', X)
+		print('Y=', Y)
 
 		# perform principal component analysis on the images
 		self.pca = RandomizedPCA(n_components=self.NUM_EIGENFACES, whiten=True).fit(X)
