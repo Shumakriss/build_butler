@@ -8,17 +8,20 @@ class ConfirmAckState(state.State):
 	def action(self):
 		tts.say("Yes or no")
 
-		r = sr.Recognizer()
-		with sr.Microphone() as source:
-	  		audio = r.listen(source)
+		for i in range(3):
+			r = sr.Recognizer()
+			with sr.Microphone() as source:
+		  		audio = r.listen(source)
 
-		try:
-		  text = r.recognize_google(audio)
-		except sr.UnknownValueError:
-		  print("Google Speech Recognition could not understand audio")
-		except sr.RequestError as e:
-		  print("Could not request results from Google Speech Recognition service; {0}".format(e))
-		
+			try:
+			  text = r.recognize_google(audio)
+			except sr.UnknownValueError:
+			  print("Google Speech Recognition could not understand audio")
+			except sr.RequestError as e:
+			  print("Could not request results from Google Speech Recognition service; {0}".format(e))
+			if(text == "yes"):
+				break
+				
 		if(text == "yes"):
 			tts.say("Good")
 			time.sleep(1)

@@ -15,9 +15,12 @@ class DetectState(state.State):
 		faceCascade = cv2.CascadeClassifier(cascPath)
 		video_capture = cv2.VideoCapture(0)
 
-		# Throw away blank first frame
-		video_capture.read()
+		# Throw away the first few frames, they can be blank
+		for i in range(5):
+			video_capture.read()
+		
 		ret, frame = video_capture.read()
+		print('frame=', frame)
 
 		gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 

@@ -12,6 +12,7 @@ Some Next Steps:
 * Update Carbon Component Manager library
 * Replace ID with usernames
 * Use a real Jenkins POST body
+* Figure out why video frames are occasionally blank
 * Create remote sensor/control API on RPi
 * Purchase and mount iRobot Create
 * Implement the pathfinding module and integrate into State
