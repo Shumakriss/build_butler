@@ -109,6 +109,7 @@ faceCascade = cv2.CascadeClassifier(cascPath)
 
 video_capture = cv2.VideoCapture(0)
 
+i=0
 while True:
     # Capture frame-by-frame
     ret, frame = video_capture.read()
@@ -119,7 +120,8 @@ while True:
         gray,
         scaleFactor=1.1,
         minNeighbors=5,
-        minSize=(70, 90),
+        #minSize=(70, 90),
+        minSize=(30, 30),
         flags=cv2.CASCADE_SCALE_IMAGE
     )
 
@@ -135,6 +137,8 @@ while True:
         #cv2.imwrite('test_faces/last_grayscale' + str(time.time()) + '.png', grayscale)
         cv2.imwrite('test_faces/last_grayscale.png', grayscale)
         find_person(Y)
+        cv2.imwrite('copy_faces/grayscale-' + str(i) + '.png', grayscale)
+        i = i+1
 
     # Display the resulting frame
     cv2.imshow('Video', frame)
