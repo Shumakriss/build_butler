@@ -1,5 +1,6 @@
 .DS_Store
 frame.jpg
+teammates
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -69,4 +70,3 @@ build_butler.json
 *.pgm
 *.DS_STORE
 *.mov
-teammates
