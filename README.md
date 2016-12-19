@@ -5,19 +5,19 @@ Build Butler is a robot that finds whoever broke the build.
 * Face detection
 * Face recognition
 * Finite State Machine (FSM) architecture
-* Speech to text
-* Text to speech (OSX only)
+* Speech to text (STT)
+* Text to speech (TTS) - OSX only
 * Web server for receiving POST from Jenkins
 
 #### Some Next Steps:
 ##### Features
-* Add some CLI options - (standalone mode, toggle host platform on agent for OSX vs. RPi)
+* Add some CLI options (standalone mode, toggle host platform on agent for OSX vs. RPi)
 * Create remote sensor/control API on RPi
 * Make recognition training more flexible/dynamic, arbitrary number of images, varying sizes, etc.
 * Purchase and integrate speakers to RPi
 * Purchase and mount iRobot Create
 * Implement the pathfinding module and integrate into State
-* Use a real Jenkins POST body
+* Use a real Jenkins POST body - POC in sample code
 * Migrate the text to speech module to something cross-platform
 
 ##### Cleanup
