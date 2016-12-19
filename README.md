@@ -11,13 +11,18 @@ Build Butler is a robot that finds whoever broke the build.
 
 #### Some Next Steps:
 ##### Features
-* Add some CLI options (standalone mode, toggle host platform on agent for OSX vs. RPi)
+* Add some CLI options
+..* standalone mode
+..* toggle agent host platform (OSX, RPi, etc.)
 * Create remote sensor/control API on RPi
-* Make recognition training more flexible/dynamic, arbitrary number of images, varying sizes, etc.
+* Improve recognition library
+..* Easier to tune
+..* Adjust to greatest common number of images
+..* Adjust to greatest common image size
 * Purchase and integrate speakers to RPi
 * Purchase and mount iRobot Create
 * Implement the pathfinding module and integrate into State
-* Use a real Jenkins POST body - POC in sample code
+* Use a real Jenkins POST body (POC in sample code)
 * Migrate the text to speech module to something cross-platform
 
 ##### Cleanup
