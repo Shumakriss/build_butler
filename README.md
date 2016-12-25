@@ -11,10 +11,8 @@ Build Butler is a robot that finds whoever broke the build.
 
 #### Some Next Steps:
 ##### Features
-* Add some CLI options
-  * standalone mode
-  * toggle agent host platform (OSX, RPi, etc.)
-* Create remote sensor/control API on RPi
+* Migrate the text to speech module to something cross-platform
+* Migrate the master script to Pyro-objects
 * Improve recognition library
   * Easier to tune
   * Adjust to greatest common number of images
@@ -23,7 +21,6 @@ Build Butler is a robot that finds whoever broke the build.
 * Purchase and mount iRobot Create
 * Implement the pathfinding module and integrate into State
 * Use a real Jenkins POST body (POC in sample code)
-* Migrate the text to speech module to something cross-platform
 
 ##### Cleanup
 * Move FSM to a module

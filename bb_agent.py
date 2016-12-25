@@ -1,31 +1,45 @@
-#!/usr/bin/env python
-from flask import Flask, render_template, Response
-from build_butler import camera
+import Pyro4
+import cv2
+import speech_recognition as sr
 
-app = Flask(__name__)
+Pyro4.config.SERIALIZERS_ACCEPTED = set(['pickle','json', 'marshal', 'serpent'])
+Pyro4.config.SERIALIZER = 'pickle'
 
-def gen(camera):
-    while True:
-        frame = camera.get_frame()
-        yield (b'--frame\r\n'
-               b'Content-Type: image/jpeg\r\n\r\n' + frame + b'\r\n')
+video_capture = cv2.VideoCapture(0)
+for i in range(5):
+	video_capture.read()
 
-@app.route('/video')
-def video():
-    return Response(gen(camera.Camera()),
-                    mimetype='multipart/x-mixed-replace; boundary=frame')
+r = sr.Recognizer()
 
-@app.route('/audio')
-def audio():
-	return "audio data"
+@Pyro4.expose
+class Video(object):
+	def get_frame(self):
+		ret, frame = video_capture.read()
+		return frame
 
-@app.route('/sensors')
-def sensors():
-	return "sensors data"
+@Pyro4.expose
+class Audio(object):
+	def get_text(self):
+		text = ""
+		with sr.Microphone() as source:
+			audio = r.listen(source)
+		try:
+			text = r.recognize_google(audio)
+		except sr.UnknownValueError:
+			print("Google Speech Recognition could not understand audio")
+			text = ""
+		except sr.RequestError as e:
+			print("Could not request results from Google Speech Recognition service; {0}".format(e))
+			text = ""
+		if(text == None or type(text) == type(None)):
+			text = ""
 
-@app.route('/controllers', methods=['POST'])
-def controllers():
-	return "Received control data"
+		return text
 
-if __name__ == '__main__':
-    app.run()
+daemon = Pyro4.Daemon()
+ns = Pyro4.locateNS(broadcast=True)
+video_uri = daemon.register(Video)
+audio_uri = daemon.register(Audio)
+ns.register("video.frame", video_uri)
+ns.register("audio.text", audio_uri)
+daemon.requestLoop()

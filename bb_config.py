@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import cv2
 import sys
 from sklearn.decomposition import RandomizedPCA
@@ -9,7 +10,7 @@ import os.path
 import string
 import time
 
-ROOT="sample_code/visual_recognition/find_my_face_live/"
+ROOT="build_butler/detection/"
 
 #function to get ID from filename
 def ID_from_filename(filename):

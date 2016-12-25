@@ -15,7 +15,7 @@ class WaitState(state.State):
 	def wait(self):
 		self.shutdown_server()
 		tts.say("Received build failure alert")
-		self.post_body = "chris"
+		self.post_body = "robin"
 		return "Alert received"
 
 	def action(self):

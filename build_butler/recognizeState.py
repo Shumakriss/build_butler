@@ -93,16 +93,11 @@ class RecognizeState(state.State):
 		# Populate training array with flattened imags from subfolders of train_faces and names
 		c = 0
 		for x, folder in enumerate(folders):
-			print('folder=', folder, ', x=', x)
 			train_faces = glob.glob(folder + '/*')
-			print('train_faces=', train_faces)
 			for i, face in enumerate(train_faces):
-				print('face=', face, ', i=', i)
 				X[c,:] = self.prepare_image(face)
 				Y.append(self.ID_from_filename(face))
 				c = c + 1
-		print('X=', X)
-		print('Y=', Y)
 
 		# perform principal component analysis on the images
 		self.pca = RandomizedPCA(n_components=self.NUM_EIGENFACES, whiten=True).fit(X)
