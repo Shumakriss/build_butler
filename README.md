@@ -24,11 +24,14 @@ Build Butler is a robot that finds whoever broke the build. One day, every softw
 * Implement the pathfinding module and integrate into State
 * Use a real Jenkins POST body (POC in sample code)
 
+##### Bugs
+* Face detection doesn't pass frame to recognition state
+* Rewrite FSM to avoid stack overflow
+
 ##### Cleanup
 * Move FSM to a module
 * Move agent code to a module
 * Cleanup modules/States - Especially recognition
-* Rewrite FSM to avoid stack overflow
 * Rewrite FSM to pass data more cleanly, perhaps some global info for States
 * Update PCA library
 * Update Carbon Component Manager library
