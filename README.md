@@ -1,5 +1,5 @@
 # Description
-Build Butler is a robot that finds whoever broke the build. 
+Build Butler is a robot that finds whoever broke the build. One day, every software team will have a build bot, taking "visualize your build" to the next level!
 
 ## Existing Proof of Concept Features
 * Face detection
