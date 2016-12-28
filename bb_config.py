@@ -2,55 +2,33 @@
 import cv2
 import sys
 from sklearn.decomposition import RandomizedPCA
-import numpy as np
-import glob
 import cv2
-import math
 import os.path
 import string
 import time
+from build_butler import constants, vision
+from build_butler.textToSpeech import tts
 
-ROOT="build_butler/detection/"
+if(len(sys.argv) < 2 or sys.argv[1] == ""):
+    print("Please enter a name")
+    exit()
 
-#function to get ID from filename
-def ID_from_filename(filename):
-    if(filename == None):
-        raise "Must specify filename"
-    part = filename.split('/')
-    return part[1].replace("s", "")
- 
-def resize(x, y, w, h):
-    # If it's wider
-    if( w/h > RATIO):
-        # Expand width
-        extra_width = (92 * h / 112) - w
-        w = w + extra_width
-        x = x - (extra_width / 2)
-    # If it's narrower
-    else:
-        # Expand height
-        extra_height = (112 * w / 92) - h
-        h = h + extra_height
-        y = y - (extra_height / 2)
-    return int(x), int(y), int(w), int(h)
+NAME=sys.argv[1]
 
-def draw_rectangle(x, y, w, h):
-    cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
-    return
-
-IMG_RES = 92 * 112 # img resolution
-RATIO = 92/112
-
-cascPath = ROOT + 'haarcascade_frontalface_default.xml'
-faceCascade = cv2.CascadeClassifier(cascPath)
+faceCascade = cv2.CascadeClassifier(constants.CASC_PATH)
 
 video_capture = cv2.VideoCapture(0)
 
-if not os.path.exists('teammates'):
-    os.makedirs('teammates')
+if not os.path.exists(constants.TRAIN_DIR):
+    os.makedirs(constants.TRAIN_DIR)
 
-if not os.path.exists('teammates/' + sys.argv[1]):
-    os.makedirs('teammates/' + sys.argv[1])
+if not os.path.exists(constants.TRAIN_DIR + '/' + NAME):
+    os.makedirs(constants.TRAIN_DIR + '/' + NAME)
+
+tts.say("Hello, I am the build butler")
+tts.say("Welcome to the team")
+tts.say("To begin, please look at the camera with a neutral expression")
+tts.say("Once your face is selected, slowly change your expression, lighting and tilt")
 
 i=0
 while True:
@@ -61,20 +39,22 @@ while True:
 
     faces = faceCascade.detectMultiScale(
         gray,
-        scaleFactor=1.1,
-        minNeighbors=5,
-        minSize=(70, 90),
+        scaleFactor=constants.SCALE_FACTOR,
+        minNeighbors=constants.MIN_NEIGHBORS,
+        minSize=(constants.MIN_WIDTH, constants.MIN_HEIGHT),
         flags=cv2.CASCADE_SCALE_IMAGE
     )
 
     # Draw a rectangle around the faces
     for (x, y, w, h) in faces:
-        x, y, w, h = resize(x, y, w, h)
-        draw_rectangle(x, y, w, h)
+        x, y, w, h = vision.resize(x, y, w, h)
+        vision.draw_rectangle(frame, x, y, w, h)
         face = frame[y:y+h, x:x+w]
-        resized = cv2.resize(face, (92, 112))
+        resized = cv2.resize(face, (constants.WIDTH, constants.HEIGHT))
         grayscale = cv2.cvtColor(resized, cv2.COLOR_RGB2GRAY)
-        cv2.imwrite('teammates/' + sys.argv[1] + '/grayscale-' + str(i) + '.png', grayscale)
+        write_filename=constants.TRAIN_DIR + NAME + '/grayscale-' + str(i) + '.png'
+        print(write_filename)
+        cv2.imwrite(write_filename, grayscale)
         i = i+1
 
     # Display the resulting frame

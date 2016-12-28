@@ -8,6 +8,7 @@ Build Butler is a robot that finds whoever broke the build.
 * Speech to text (STT)
 * Text to speech (TTS) - OSX only
 * Web server for receiving POST from Jenkins
+* Remote data objects (Pyro)
 
 #### Some Next Steps:
 ##### Features
@@ -30,7 +31,6 @@ Build Butler is a robot that finds whoever broke the build.
 * Rewrite FSM to pass data more cleanly, perhaps some global info for States
 * Update PCA library
 * Update Carbon Component Manager library
-* Figure out why video frames are occasionally blank
 
 ## Credits
 This project was originally built by integrating the works of others mentioned below:

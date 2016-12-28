@@ -1,17 +1,14 @@
-from build_butler import state, recognizeState, wanderState
+from build_butler import state, recognizeState, wanderState, constants
 from build_butler.textToSpeech import tts
 import cv2
 import sys
 
 class DetectState(state.State):
 
-	RATIO = 92/112
-	CLASSIFIER_FILE = "build_butler/detection/haarcascade_frontalface_default.xml"
-
 	def action(self):
 		tts.say("Scanning for humans")
 
-		cascPath = self.CLASSIFIER_FILE
+		cascPath = constants.CLASSIFIER_FILE
 		faceCascade = cv2.CascadeClassifier(cascPath)
 		video_capture = cv2.VideoCapture(0)
 
@@ -25,15 +22,16 @@ class DetectState(state.State):
 
 		faces = faceCascade.detectMultiScale(
 			gray,
-			scaleFactor=1.1,
-			minNeighbors=5,
-			minSize=(70, 90),
+			scaleFactor=constants.SCALE_FACTOR,
+			minNeighbors=constants.MIN_NEIGHBORS,
+			minSize=(constants.MIN_WIDTH, constants.MIN_HEIGHT),
 			flags=cv2.CASCADE_SCALE_IMAGE
 		)
 
 		video_capture.release()
 
 		if(type(faces) != tuple and faces.size > 0):
+			tts.say("Face detected")
 			self.next = recognizeState.RecognizeState(data=[frame, faces, self.data])
 		else:
 			self.next = wanderState.WanderState()

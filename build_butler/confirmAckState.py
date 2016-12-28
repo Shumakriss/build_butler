@@ -6,8 +6,6 @@ import speech_recognition as sr
 class ConfirmAckState(state.State):
 
 	def action(self):
-		tts.say("Yes or no")
-
 		for i in range(3):
 			r = sr.Recognizer()
 			with sr.Microphone() as source:
