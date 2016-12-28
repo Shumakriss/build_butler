@@ -14,6 +14,7 @@ Build Butler is a robot that finds whoever broke the build. One day, every softw
 ##### Features
 * Migrate the text to speech module to something cross-platform
 * Migrate the master script to Pyro-objects
+  * Migrate STT module to Pyro (Pi does STT, sends text back)
 * Improve recognition library
   * Easier to tune
   * Adjust to greatest common number of images
@@ -45,7 +46,7 @@ I intend to use the following hardware for this project:
 * MacBook running OSX
 * Raspberry Pi 1 running Pidora
 * iRobot Create (Roomba developer edition)
-* Parrot AR drone
+* Parrot AR drone (or maybe the Mambo?)
 * Raspberry Pi Spy Camera https://www.adafruit.com/product/1937
 * USB Wifi https://www.raspberrypi.org/products/usb-wifi-dongle/
 * USB Mini microphone
