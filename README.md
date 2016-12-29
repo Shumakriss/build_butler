@@ -14,11 +14,6 @@ Build Butler is a robot that finds whoever broke the build. One day, every softw
 ##### Features
 * Migrate the text to speech module to something cross-platform
 * Migrate the master script to Pyro-objects
-  * Migrate STT module to Pyro (Pi does STT, sends text back)
-* Improve recognition library
-  * Easier to tune
-  * Adjust to greatest common number of images
-  * Adjust to greatest common image size
 * Purchase and integrate speakers to RPi
 * Purchase and mount iRobot Create
 * Implement the pathfinding module and integrate into State

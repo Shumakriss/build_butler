@@ -1,0 +1,10 @@
+Flask
+image
+imagesize
+numpy
+pickleshare
+Pyro4
+scikit-image
+scikit-learn
+scipy
+SpeechRecognition
