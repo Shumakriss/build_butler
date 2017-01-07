@@ -12,9 +12,9 @@ Build Butler is a robot that finds whoever broke the build. One day, every softw
 
 #### Some Next Steps:
 ##### Features
-* Visual debugging
-* Migrate STT to RPi
+* Visual debugging mode
 * Migrate the text to speech module to something cross-platform
+* Desktop mode (all running on Pi)
 * Purchase and integrate speakers to RPi
 * Purchase and mount iRobot Create
 * Implement the pathfinding module and integrate into State
