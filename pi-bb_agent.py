@@ -23,7 +23,7 @@ class Video(object):
 class Audio(object):
 	def get_text(self):
 		text = ""
-		with sr.Microphone() as source:
+		with sr.Microphone(device_index=2,chunk_size=512,sample_rate=44100) as source:
 			audio = r.listen(source)
 		try:
 			text = r.recognize_google(audio)
