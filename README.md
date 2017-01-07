@@ -13,7 +13,6 @@ Build Butler is a robot that finds whoever broke the build. One day, every softw
 #### Some Next Steps:
 ##### Features
 * Migrate the text to speech module to something cross-platform
-* Migrate the master script to Pyro-objects
 * Purchase and integrate speakers to RPi
 * Purchase and mount iRobot Create
 * Implement the pathfinding module and integrate into State
@@ -55,4 +54,4 @@ I intend to use the following hardware for this project:
 * Generic Human-robot interaction (HRI) library - Make modules portable and configurable
 * Allow build-butler configuration through HRI - (Sign up with TTS, STT, face detection, etc.)
 * Integrate with a drone, perhaps pairing the carry capacity of the iRobot Create with the mobility of a mini drone (like the Parrot Mambo)
-* Touch and go drone charger similar to the Create charging dock - apparently Parrot is also working on this!
+* Touch and go drone charger similar to the Create charging dock - apparently Parrot is also working on this but for industrial use
