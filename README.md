@@ -12,6 +12,7 @@ Build Butler is a robot that finds whoever broke the build. One day, every softw
 
 #### Some Next Steps:
 ##### Features
+* Migrate STT to RPi
 * Migrate the text to speech module to something cross-platform
 * Purchase and integrate speakers to RPi
 * Purchase and mount iRobot Create

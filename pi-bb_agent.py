@@ -1,21 +1,23 @@
 import Pyro4
-import cv2
 import speech_recognition as sr
+import picamera
+import numpy as np
 
 Pyro4.config.SERIALIZERS_ACCEPTED = set(['pickle','json', 'marshal', 'serpent'])
 Pyro4.config.SERIALIZER = 'pickle'
-
-video_capture = cv2.VideoCapture(0)
-for i in range(5):
-	video_capture.read()
 
 r = sr.Recognizer()
 
 @Pyro4.expose
 class Video(object):
-	def get_frame(self):
-		ret, frame = video_capture.read()
-		return frame
+    def get_frame(self):
+        output = None
+        with picamera.PiCamera() as camera:
+                camera.resolution = (320, 240)
+                camera.framerate = 24
+                output = np.empty((240, 320, 3), dtype=np.uint8)
+                camera.capture(output, 'rgb')
+        return output
 
 @Pyro4.expose
 class Audio(object):
@@ -38,9 +40,9 @@ class Audio(object):
 
 daemon = Pyro4.Daemon("192.168.1.12")
 ns = Pyro4.locateNS(broadcast=True)
-video_uri = daemon.register(Video)
 audio_uri = daemon.register(Audio)
-ns.register("video.frame", video_uri)
+video_uri = daemon.register(Video)
 ns.register("audio.text", audio_uri)
+ns.register("video.frame", video_uri)
 print("Finished registering Pyro objects")
 daemon.requestLoop()
