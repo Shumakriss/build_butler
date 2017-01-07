@@ -12,6 +12,7 @@ Build Butler is a robot that finds whoever broke the build. One day, every softw
 
 #### Some Next Steps:
 ##### Features
+* Visual debugging
 * Migrate STT to RPi
 * Migrate the text to speech module to something cross-platform
 * Purchase and integrate speakers to RPi
@@ -20,7 +21,7 @@ Build Butler is a robot that finds whoever broke the build. One day, every softw
 * Use a real Jenkins POST body (POC in sample code)
 
 ##### Bugs
-* Face detection doesn't pass frame to recognition state
+* Face detection doesn't pass frame to recognition state (always uses my picture)
 * Rewrite FSM to avoid stack overflow
 
 ##### Cleanup

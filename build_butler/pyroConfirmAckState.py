@@ -31,4 +31,4 @@ class PyroConfirmAckState(state.State):
 			self.next = waitState.WaitState()
 		else:
 			time.sleep(1)
-			self.next = confirmAckState.ConfirmAckState()
+			self.next = pyroConfirmAckState.PyroConfirmAckState()
