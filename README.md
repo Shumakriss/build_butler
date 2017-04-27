@@ -74,6 +74,10 @@ Build butler is a finite state machine (FSM) AI that utilizes human computer int
 
 <img src="https://github.com/Shumakriss/build_butler/blob/master/Build%20Butler%20FSM.png?raw=true">
 
+While build butler is designed with multiple components and uses some cloud components, most of it can be deployed on one system for testing like so:
+
+<img src="https://github.com/Shumakriss/build_butler/blob/master/Testing%20Setup.png?raw=true">
+
 ## Existing Proof of Concept Features
 * Face detection
 * Face recognition
