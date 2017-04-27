@@ -74,19 +74,19 @@ Watching for build failures
 ### Finite State Machine
 Build butler is a finite state machine (FSM) AI that utilizes human computer interaction and applied machine learning. Below is a diagram of the FSM:
 
-<img src="https://github.com/Shumakriss/build_butler/blob/master/Build%20Butler%20FSM.png?raw=true">
+<img src="https://github.com/Shumakriss/build_butler/blob/master/images/Build%20Butler%20FSM.png?raw=true">
 
 ### Deployment Architecture
 While build butler is designed with multiple components and uses some cloud components, most of it can be deployed on one system for testing like so:
 
-<img src="https://github.com/Shumakriss/build_butler/blob/master/Testing%20Setup.png?raw=true">
+<img src="https://github.com/Shumakriss/build_butler/blob/master/images/Testing%20Setup.png?raw=true">
 
 ### Performance of distributed components
 It should be pointed out that performance can vary heavily depending on location of the components. Currently, most processing is done on the agent or in the cloud and the master is really only responsible for the finite state machine. This architecture evolved while balancing performance of processing and data transfer. 
 
 A better architecture is in progress could look like this:
 
-<img src="https://github.com/Shumakriss/build_butler/blob/master/Production%20Setup.png?raw=true">
+<img src="https://github.com/Shumakriss/build_butler/blob/master/images/Production%20Setup.png?raw=true">
 
 
 ## Existing Proof of Concept Features
