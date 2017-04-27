@@ -82,7 +82,12 @@ While build butler is designed with multiple components and uses some cloud comp
 <img src="https://github.com/Shumakriss/build_butler/blob/master/Testing%20Setup.png?raw=true">
 
 ### Performance of distributed components
-It should be pointed out that performance can vary heavily depending on location of the components. Currently, most processing is done on the agent or in the cloud and the master is really only responsible for the finite state machine. This architecture evolved while balancing performance of processing and data transfer. A better architecture is in progress.
+It should be pointed out that performance can vary heavily depending on location of the components. Currently, most processing is done on the agent or in the cloud and the master is really only responsible for the finite state machine. This architecture evolved while balancing performance of processing and data transfer. 
+
+A better architecture is in progress could look like this:
+
+<img src="https://github.com/Shumakriss/build_butler/blob/master/Production%20Setup.png?raw=true">
+
 
 ## Existing Proof of Concept Features
 * Face detection
