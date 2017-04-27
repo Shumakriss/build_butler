@@ -36,7 +36,7 @@ class Audio(object):
 
 		return text
 
-daemon = Pyro4.Daemon("192.168.1.12")
+daemon = Pyro4.Daemon("localhost")
 ns = Pyro4.locateNS(broadcast=True)
 video_uri = daemon.register(Video)
 audio_uri = daemon.register(Audio)

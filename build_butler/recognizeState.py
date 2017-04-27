@@ -39,7 +39,7 @@ class RecognizeState(state.State):
 			#resized = cv2.resize(face, (constants.WIDTH, constants.HEIGHT))
 			#grayscale = cv2.cvtColor(resized, cv2.COLOR_RGB2GRAY)
 			person = vision.find_person(self.Y, self.pca, self.X_pca)
-			print("Recognized person as '", person, "'")
+			print("Recognized person as '", person, "'. Culprit was '", post_body, "'.")
 			if(person == post_body):
 				recognized = True
 

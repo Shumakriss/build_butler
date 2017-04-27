@@ -1,4 +1,4 @@
-from build_butler import state, waitState, pyroConfirmAckState
+from build_butler import state, waitState, requestAckState
 from build_butler.textToSpeech import tts
 import Pyro4
 import time
@@ -31,4 +31,4 @@ class PyroConfirmAckState(state.State):
 			self.next = waitState.WaitState()
 		else:
 			time.sleep(1)
-			self.next = pyroConfirmAckState.PyroConfirmAckState()
+			self.next = requestAckState.RequestAckState()

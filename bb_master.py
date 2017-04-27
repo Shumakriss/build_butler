@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 from build_butler import *
 
 wait = waitState.WaitState()
