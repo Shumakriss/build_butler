@@ -69,6 +69,11 @@ Fix it or be destroyed
 Watching for build failures
 ~~~
 
+## Architecture
+Build butler is a finite state machine (FSM) AI that utilizes human computer interaction and applied machine learning. Below is a diagram of the FSM:
+
+<img src="https://github.com/Shumakriss/build_butler/blob/master/Build%20Butler%20FSM.png?raw=true">
+
 ## Existing Proof of Concept Features
 * Face detection
 * Face recognition
